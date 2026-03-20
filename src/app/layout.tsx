@@ -1,17 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { url } from "inspector";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+// import localFont from "next/font/local";
+import { Roboto, Poppins } from "next/font/google";
+// const poppins = localFont ({
+// src: "../fonts/Poppins.woff2",
+// variable: "--font-poppins",
+// weight: "100 900",
+// display: "swap",
+// preload: false,
+// });
+const roboto = Roboto ({
+   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+   subsets:['latin']
+  }) 
+const poppins = Poppins ({
+   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+   subsets:['latin']
+  }) 
 
 export const metadata: Metadata = {
   // metadataBase: new URL("/"),
@@ -56,9 +61,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${roboto.className}, ${poppins.className} antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body>{children}</body>
     </html>
   );
 }
