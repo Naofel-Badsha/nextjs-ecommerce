@@ -1,21 +1,23 @@
 import type { Metadata } from "next";
 import "./globals.css";
-// import localFont from "next/font/local";
-import { Roboto, Poppins } from "next/font/google";
-// const poppins = localFont ({
-// src: "../fonts/Poppins.woff2",
-// variable: "--font-poppins",
-// weight: "100 900",
-// display: "swap",
-// preload: false,
-// });
+
+import { Roboto, Poppins, Oswald } from "next/font/google";
+
+
 const roboto = Roboto ({
    weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-   subsets:['latin']
+   subsets:['latin'],
+   variable: "--font-roboto",
   }) 
 const poppins = Poppins ({
    weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-   subsets:['latin']
+   subsets:['latin'],
+   variable: "--font-poppins",
+  }) 
+const oswald = Oswald ({
+   weight: ["200", "300", "400", "500", "600", "700",],
+   subsets:['latin'],
+   variable: "--font-Oswald",
   }) 
 
 export const metadata: Metadata = {
@@ -61,7 +63,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${roboto.className}, ${poppins.className} antialiased`}
+      className={`${roboto.variable} ${poppins.variable} ${oswald.variable}  antialiased`}
     >
       <body>{children}</body>
     </html>
