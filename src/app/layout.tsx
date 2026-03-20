@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { url } from "inspector";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,8 +14,36 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NexCart E-commerce App",
+  // metadataBase: new URL("/"),
+  title: {
+    template: "%s | Shopcart-Premimum Online Shopping",
+    default: "NexCart E-commerce App",
+  },
   description: "A modern ecommerce application built with Next.js and TypeScript",
+  keywords: [
+    "online shopping",
+    "ecommerce",
+    "Shopcart",
+    "premium products",
+    "shopping platform",
+    "user experience",
+    "buy online",
+    "shop online",
+    "retail",
+    "fashion",
+    "electronics",
+  ],
+  authors: [
+    {
+      name: "NexCart",
+      // url: ""
+    },
+  ],
+  creator: "NexCart Team",
+  publisher: "NexCart Inc",
+  alternates: {
+    // canonical: ""
+  }
 };
 
 export default function RootLayout({
