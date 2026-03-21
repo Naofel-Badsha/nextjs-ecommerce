@@ -1,4 +1,5 @@
 import Container from "@/components/common/Container"
+import { ModeToggle } from "@/components/ui/mode-toggle"
 import Link from "next/link"
 
 
@@ -20,7 +21,7 @@ const Navbar = () => {
 
                 {/*---------Icon--------*/}
                 <div className="">
-                    Icon
+                    <ModeToggle />
                 </div>
             </Container>
         </header>

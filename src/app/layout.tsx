@@ -2,23 +2,24 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 import { Roboto, Poppins, Oswald } from "next/font/google";
+import { ThemeProvider } from "@/components/ui/theme-provider";
 
 
-const roboto = Roboto ({
-   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-   subsets:['latin'],
-   variable: "--font-roboto",
-  }) 
-const poppins = Poppins ({
-   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-   subsets:['latin'],
-   variable: "--font-poppins",
-  }) 
-const oswald = Oswald ({
-   weight: ["200", "300", "400", "500", "600", "700",],
-   subsets:['latin'],
-   variable: "--font-Oswald",
-  }) 
+const roboto = Roboto({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ['latin'],
+  variable: "--font-roboto",
+})
+const poppins = Poppins({
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  subsets: ['latin'],
+  variable: "--font-poppins",
+})
+const oswald = Oswald({
+  weight: ["200", "300", "400", "500", "600", "700",],
+  subsets: ['latin'],
+  variable: "--font-Oswald",
+})
 
 export const metadata: Metadata = {
   // metadataBase: new URL("/"),
@@ -61,11 +62,19 @@ export default function RootLayout({
 
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${roboto.variable} ${poppins.variable} ${oswald.variable}  antialiased`}
-    >
-      <body>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${roboto.variable} ${poppins.variable} ${oswald.variable}  antialiased`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
