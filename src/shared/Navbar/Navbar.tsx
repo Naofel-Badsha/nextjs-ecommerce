@@ -1,5 +1,7 @@
 import Container from "@/components/common/Container"
 import { ModeToggle } from "@/components/ui/mode-toggle"
+import headerNavItems from "@/constants/data"
+import { cn } from "@/lib/utils"
 import Link from "next/link"
 
 
@@ -15,8 +17,12 @@ const Navbar = () => {
                 </div>
 
                 {/*---------Navbar--------*/}
-                <div className="">
-                    Navigation
+                <div className="hidden md:inline-flex items-center justify-center gap-7 text-sm font-semibold text-light-color capitalize">
+                    {
+                        headerNavItems?.map((item) => (
+                            <Link key={item.id} className={cn("hover:text-shop_light_green hoverEffect")} href={item.href}>{item.title}</Link>
+                        ))
+                    }
                 </div>
 
                 {/*---------Icon--------*/}
