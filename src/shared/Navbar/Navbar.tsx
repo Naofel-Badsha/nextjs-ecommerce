@@ -3,6 +3,7 @@ import Container from "@/components/common/Container"
 import { ModeToggle } from "@/components/ui/mode-toggle"
 import headerNavItems from "@/constants/data"
 import { cn } from "@/lib/utils"
+
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
@@ -10,7 +11,7 @@ import { usePathname } from "next/navigation"
 const Navbar = () => {
     const pathname = usePathname();
     const getSingInUrl = "/sing-in";
-    const SingUpUtl = "/sing-up";
+    const SingUpUrl = "/sing-up";
 
     return (
         <header className="py-5 border-b border-b-border">
@@ -37,8 +38,8 @@ const Navbar = () => {
 
                 {/*---------Icon--------*/}
                 <div className="flex gap-2">
-                    <Link href={getSingInUrl} className="bg-transparent border border-shop_btn_dark_green hover:bg-shop_btn_dark_green text-shop_btn_dark_green hover:text-shop_white px-2 py-1.5 rounded-sm text-xs font-semibold hoverEfect">SingIn</Link>
-                    <Link href={getSingInUrl} className="border border-shop_btn_dark_green hover:bg-transparent bg-shop_btn_dark_green hover:text-shop_btn_dark_green text-shop_white px-2 py-1.5 rounded-sm text-xs font-semibold hoverEfect">SingUp</Link>
+                    <Link href={getSingInUrl} className="bg-transparent border border-shop_btn_dark_green hover:bg-shop_btn_dark_green text-shop_btn_dark_green hover:text-shop_white px-2 py-1.5 rounded-sm text-xs font-semibold hoverEfect">Sing In</Link>
+                    <Link href={SingUpUrl} className="border border-shop_btn_dark_green hover:bg-transparent bg-shop_btn_dark_green hover:text-shop_btn_dark_green text-shop_white px-2 py-1.5 rounded-sm text-xs font-semibold hoverEfect">Sing Up</Link>
                     <ModeToggle />
                 </div>
             </Container>

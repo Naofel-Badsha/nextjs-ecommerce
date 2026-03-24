@@ -1,3 +1,5 @@
+import { FaCar, FaGift, FaMoneyBill } from "react-icons/fa";
+import { FaBagShopping } from "react-icons/fa6";
 
 const headerNavItems = [
     {   id: 1,
@@ -29,6 +31,30 @@ const headerNavItems = [
         title: "Contact",
         href: "/contact",
     },
+];
+
+const singUpBenefits = [
+    {
+   icon:FaGift,
+   title: "Welcome Bonus",
+   descreption: 'Get 10% off your first order when you sign up'
+},
+
+    {
+   icon:FaBagShopping,
+   title: "Exclusive Deals",
+   descreption: 'Access member-only discounts and early sales'
+},
+    {
+   icon:FaCar,
+   title: "Free Shipping",
+   descreption: 'Enjoy free shipping on orders over $50'
+},
+    {
+   icon:FaMoneyBill,
+   title: "Secure Payments",
+   descreption: 'Multiple payment options with bank-level security'
+},
 ]
 
 export default headerNavItems
