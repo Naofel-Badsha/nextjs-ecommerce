@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaArrowsSpin } from 'react-icons/fa6';
 interface PlatformCard {
   id: string;
   title: string;
@@ -18,8 +19,39 @@ const platforms: PlatformCard[] = [
 
 const SingleBlogPage = () => {
   return (
-    <div>
-        
+<div className="min-h-screen bg-gray-50 p-10 flex justify-center items-center">
+      {/* Background Grid Pattern */}
+      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/graphy.png')]" />
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-6xl w-full relative z-10">
+        {platforms.map((item) => (
+          <div 
+            key={item.id} 
+            className={`relative p-6 rounded-2xl border-2 ${item.color} shadow-lg transition-transform hover:scale-105 duration-300`}
+          >
+            {/* Top Pin Decoration */}
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+               <div className={`p-1 bg-white rounded-full shadow-md ${item.pinColor}`}>
+                  <FaArrowsSpin size={24} fill="currentColor" />
+               </div>
+            </div>
+
+            {/* Content */}
+            <div className="mt-4">
+              <span className={`text-2xl font-bold opacity-70 ${item.pinColor}`}>{item.id}</span>
+              <h3 className="text-xl font-extrabold text-gray-800 mt-1 mb-2">{item.title}</h3>
+              <p className="text-sm text-gray-600 leading-relaxed font-medium">
+                {item.description}
+              </p>
+            </div>
+            
+            {/* Logo Placeholder (Right Top) */}
+            <div className="absolute top-4 right-4 opacity-20">
+               <div className="w-10 h-10 bg-gray-400 rounded-md" /> 
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
