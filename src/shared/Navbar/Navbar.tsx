@@ -1,7 +1,7 @@
 'use client'
 import Container from "@/components/common/Container"
 import { ModeToggle } from "@/components/ui/mode-toggle"
-import headerNavItems from "@/constants/data"
+import { headerNavItems } from "@/constants/data"
 import { cn } from "@/lib/utils"
 
 import Link from "next/link"
