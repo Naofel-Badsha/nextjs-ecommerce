@@ -1,6 +1,5 @@
 import Container from '@/components/common/Container'
 import Link from 'next/link'
-import React from 'react'
 import { FaArrowLeft } from 'react-icons/fa'
 
 const AuthHeader = () => {

@@ -1,22 +1,25 @@
 "use client";
-
 import Container from "@/components/common/Container";
 import { contactConfig } from "@/config/contactConfig";
 import { singUpBenefits } from "@/constants/data";
 import { motion } from "motion/react";
 import Link from "next/link";
 import { FaStar } from "react-icons/fa";
+import { SignIn, SignUp, SignUpButton, useClerk } from "@clerk/nextjs";
+import { useSearchParams } from "next/navigation";
 
 const SingUpPage = () => {
+  const searchParams = useSearchParams();
+  const redirectTo = searchParams.get("redirectTo");
   return (
-    <div className="min-h-screen bg-linear-to-br from-shop_orange/5 via-shop_light_bg to-shop_light_green/45 relative overflow-hidden">
-      <Container className="flex flex-col lg:flex-row gap-5 lg:gap-10">
+    <div className="h-[95vh] bg-linear-to-br from-shop_orange/5 via-shop_light_bg to-shop_light_green/45 relative overflow-hidden">
+      <Container className="flex flex-col lg:flex-row gap-5 lg:gap-10 py-16 lg:py-36">
         {/*-------Left------Side------*/}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="w-full lg:w-3/5 py-8 lg:py-10"
+          className="w-full lg:w-3/5"
         >
           <div className="">
             <motion.div
@@ -57,7 +60,7 @@ const SingUpPage = () => {
                   </motion.div>
                 ))}
               </div>
-                
+
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -77,16 +80,41 @@ const SingUpPage = () => {
                 </div>
               </motion.div>
 
-              <motion.div className="flex items-center justify-center gap-1.5 mt-3">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 1 }}
+                className="flex items-center justify-center gap-1.5 mt-6 font-poppins"
+              >
                 <p className="font-medium">Questions? Contact us at</p>
-                <Link href={`mailto:${contactConfig.emails.support}`} className="text-sm font-medium text-shop_light_green hover:text-shop_dark_green hoverEfect">{contactConfig.emails.support}</Link>
+                <Link
+                  href={`mailto:${contactConfig.emails.support}`}
+                  className="text-sm font-medium text-shop_light_green hover:text-shop_dark_green hoverEfect"
+                >
+                  {contactConfig.emails.support}
+                </Link>
               </motion.div>
             </div>
           </div>
         </motion.div>
 
         {/*-------Right------Side------*/}
-        <motion.div className="w-full lg:w-2/5">right</motion.div>
+        {/* bg-white/40 shadow-none rounded-xl */}
+        <div className="w-full lg:w-2/5 ">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <div className="clerk-sing-up">
+              <SignUp
+                signInUrl={`/sign-in${redirectTo ? `?redirectTo=${encodeURIComponent(redirectTo)}` : ""}`}
+                forceRedirectUrl={redirectTo || "/user/dashboard"}
+                fallbackRedirectUrl={redirectTo || "user/dashboard"}
+              />
+            </div>
+          </motion.div>
+        </div>
       </Container>
     </div>
   );
