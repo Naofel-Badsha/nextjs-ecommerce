@@ -6,7 +6,8 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-const Navbar = () => {
+
+const Navbar = async () => {
   const pathname = usePathname();
   const getSingInUrl = "/sing-in";
   const SingUpUrl = "/sing-up";
