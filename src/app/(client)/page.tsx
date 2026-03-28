@@ -1,5 +1,5 @@
 import Container from "@/components/common/Container";
-import { Button } from "@/components/ui/button";
+
 
 
 const Home = () => {
@@ -7,6 +7,7 @@ const Home = () => {
     <div className="">
       <Container>
         <h1 className="">Hello</h1>
+
       </Container>
     </div>
   );
